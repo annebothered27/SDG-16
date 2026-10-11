@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programs | SDG 16</title>
+
+<style>
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+:root {
+    --navy:#05071f;
+    --purple:#7c3aed;
+    --violet:#a855f7;
+    --cyan:#06b6d4;
+    --blue:#2563eb;
+    --pink:#ec4899;
+    --gold:#facc15;
+    --gray:#94a3b8;
+    --glass:rgba(255,255,255,.08);
+    --border:rgba(255,255,255,.16);
+}
+
+body {
+    font-family:"Segoe UI",Arial,sans-serif;
+    color:white;
+    background:
+        linear-gradient(
+            rgba(5,7,31,.82),
+            rgba(5,7,31,.96)
+        ),
+        url("images/sdg16.jpg") center/cover fixed;
+    min-height:100vh;
+    overflow-x:hidden;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    position:sticky;
+    top:0;
+    z-index:1000;
+    padding:14px 6%;
+    background:rgba(5,7,31,.85);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--border);
+}
+
+.nav-container {
+    max-width:1250px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo {
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:800;
+}
+
+.logo-icon {
+    width:45px;
+    height:45px;
+    border-radius:15px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:24px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--cyan),
+            var(--purple),
+            var(--pink)
+        );
+
+    box-shadow:
+        0 8px 25px rgba(124,58,237,.25);
+}
+
+.logo span {
+    background:
+        linear-gradient(
+            90deg,
+            var(--cyan),
+            white,
+            var(--pink)
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+}
+
+.nav-links {
+    display:flex;
+    gap:8px;
+    list-style:none;
+}
+
+.nav-links a {
+    display:block;
+
+    text-decoration:none;
+
+    color:#dbeafe;
+
+    padding:10px 16px;
+
+    border-radius:30px;
+
+    font-weight:600;
+
+    border:1px solid transparent;
+
+    transition:.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+
+    background:
+        rgba(255,255,255,.1);
+
+    border-color:
+        var(--cyan);
+
+    color:white;
+
+    box-shadow:
+        0 0 20px rgba(6,182,212,.15);
+}
+
+.menu-btn {
+    display:none;
+
+    background:none;
+
+    border:0;
+
+    color:white;
+
+    font-size:27px;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+section {
+    max-width:1250px;
+
+    margin:auto;
+
+    padding:90px 6%;
+}
+
+.section-heading {
+    text-align:center;
+
+    margin-bottom:50px;
+}
+
+.section-heading small {
+
+    color:var(--cyan);
+
+    text-transform:uppercase;
+
+    letter-spacing:3px;
+
+    font-weight:800;
+}
+
+.section-heading h2 {
+
+    font-size:42px;
+
+    margin-top:10px;
+}
+
+.section-heading p {
+
+    max-width:700px;
+
+    margin:15px auto 0;
+
+    color:var(--gray);
+
+    line-height:1.7;
+}
+
+
+/* =========================
+   PROGRAM GRID
+========================= */
+
+.program-grid {
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:22px;
+}
+
+.program {
+
+    display:grid;
+
+    grid-template-columns:
+        150px 1fr;
+
+    gap:20px;
+
+    padding:20px;
+
+    border-radius:25px;
+
+    background:var(--glass);
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(18px);
+
+    transition:.35s;
+}
+
+.program:hover {
+
+    transform:translateY(-7px);
+
+    border-color:
+        var(--violet);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.25);
+}
+
+.program-image {
+
+    height:150px;
+
+    border-radius:18px;
+
+    overflow:hidden;
+}
+
+.program-image img {
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.4s;
+}
+
+.program:hover
+.program-image img {
+
+    transform:scale(1.08);
+}
+
+.program-number {
+
+    color:var(--cyan);
+
+    font-size:13px;
+
+    font-weight:800;
+
+    margin-bottom:8px;
+}
+
+.program h3 {
+
+    font-size:23px;
+
+    margin-bottom:8px;
+}
+
+.program p {
+
+    color:var(--gray);
+
+    line-height:1.6;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    border-top:
+        1px solid var(--border);
+
+    background:
+        rgba(0,0,0,.3);
+
+    padding:40px 7%;
+
+    text-align:center;
+}
+
+footer p {
+
+    color:#64748b;
+
+    font-size:14px;
+}
+
+.footer-line {
+
+    width:120px;
+
+    height:3px;
+
+    margin:15px auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--cyan),
+            var(--purple),
+            var(--pink)
+        );
+
+    border-radius:10px;
+}
+
+
+/* =========================
+   PAGE ANIMATION
+========================= */
+
+main {
+
+    animation:
+        pageIn .6s ease;
+}
+
+@keyframes pageIn {
+
+    from {
+
+        opacity:0;
+
+        transform:
+            translateY(20px);
+    }
+
+    to {
+
+        opacity:1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px) {
+
+    .menu-btn {
+
+        display:block;
+
+        cursor:pointer;
+    }
+
+    .nav-links {
+
+        display:none;
+
+        position:absolute;
+
+        top:73px;
+
+        left:0;
+
+        width:100%;
+
+        padding:20px;
+
+        background:
+            rgba(5,7,31,.98);
+
+        flex-direction:column;
+
+        border-bottom:
+            1px solid var(--border);
+    }
+
+    .nav-links.show {
+
+        display:flex;
+    }
+
+    .nav-links a {
+
+        text-align:center;
+    }
+
+    .program-grid {
+
+        grid-template-columns:1fr;
+    }
+}
+
+
+@media(max-width:550px) {
+
+    .section-heading h2 {
+
+        font-size:32px;
+    }
+
+    .program {
+
+        grid-template-columns:1fr;
+    }
+
+    .program-image {
+
+        height:210px;
+    }
+
+    .logo span {
+
+        font-size:14px;
+    }
+
+    section {
+
+        padding:
+            70px 5%;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- NAVIGATION -->
+
+<nav>
+
+    <div class="nav-container">
+
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                ⚖️
+            </div>
+
+            <span>
+                CIVIC FUTURE
+            </span>
+
+        </div>
+
+
+        <button
+            class="menu-btn"
+            onclick="toggleMenu()">
+
+            ☰
+
+        </button>
+
+
+        <ul
+            class="nav-links"
+            id="navLinks">
+
+
+            <li>
+
+                <a href="index.html">
+
+                    Home
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="page1.html">
+
+                    About SDG 16
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a
+                    href="page2.html"
+                    class="active">
+
+                    Programs
+
+                </a>
+
+            </li>
+
+
+            <li>
+
+                <a href="page3.html">
+
+                    Take Action
+
+                </a>
+
+            </li>
+
+
+        </ul>
+
+    </div>
+
+</nav>
+
+
+
+<main>
+
+
+<section>
+
+
+    <div class="section-heading">
+
+
+        <small>
+            PROGRAMS & ACTIVITIES
+        </small>
+
+
+        <h2>
+            Turning Ideas Into Action
+        </h2>
+
+
+        <p>
+
+            Small actions can create peaceful communities,
+            fair systems, and stronger institutions.
+
+        </p>
+
+
+    </div>
+
+
+
+    <div class="program-grid">
+
+
+        <!-- PROGRAM 1 -->
+
+        <div class="program">
+
+
+            <div class="program-image">
+
+                <img
+                    src="images/peace campaign.jpg"
+                    alt="Peace Campaign">
+
+            </div>
+
+
+            <div>
+
+
+                <div class="program-number">
+
+                    PROGRAM 01
+
+                </div>
+
+
+                <h3>
+                    🕊️ Peace Campaign
+                </h3>
+
+
+                <p>
+
+                    Encourage kindness, respect, conflict resolution,
+                    and peaceful communication.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- PROGRAM 2 -->
+
+        <div class="program">
+
+
+            <div class="program-image">
+
+                <img
+                    src="images/justice awareness.jpg"
+                    alt="Justice Awareness">
+
+            </div>
+
+
+            <div>
+
+
+                <div class="program-number">
+
+                    PROGRAM 02
+
+                </div>
+
+
+                <h3>
+                    ⚖️ Justice Awareness
+                </h3>
+
+
+                <p>
+
+                    Educate students and citizens about their
+                    rights and responsibilities.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- PROGRAM 3 -->
+
+        <div class="program">
+
+
+            <div class="program-image">
+
+                <img
+                    src="images/transparancy project.jpg"
+                    alt="Transparency Project">
+
+            </div>
+
+
+            <div>
+
+
+                <div class="program-number">
+
+                    PROGRAM 03
+
+                </div>
+
+
+                <h3>
+                    🔍 Transparency Project
+                </h3>
+
+
+                <p>
+
+                    Encourage organizations to share information
+                    and decisions clearly.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- PROGRAM 4 -->
+
+        <div class="program">
+
+
+            <div class="program-image">
+
+                <img
+                    src="images/good governance.jpg"
+                    alt="Good Governance">
+
+            </div>
+
+
+            <div>
+
+
+                <div class="program-number">
+
+                    PROGRAM 04
+
+                </div>
+
+
+                <h3>
+                    🏛️ Good Governance
+                </h3>
+
+
+                <p>
+
+                    Promote responsible leadership, accountability,
+                    and ethical decision-making.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- PROGRAM 5 -->
+
+        <div class="program">
+
+
+            <div class="program-image">
+
+                <img
+                    src="images/digital citizenship.jpg"
+                    alt="Digital Citizenship">
+
+            </div>
+
+
+            <div>
+
+
+                <div class="program-number">
+
+                    PROGRAM 05
+
+                </div>
+
+
+                <h3>
+                    💻 Digital Citizenship
+                </h3>
+
+
+                <p>
+
+                    Promote responsible and respectful use
+                    of digital platforms.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- PROGRAM 6 -->
+
+        <div class="program">
+
+
+            <div class="program-image">
+
+                <img
+                    src="images/community dialogue.jpg"
+                    alt="Community Dialogue">
+
+            </div>
+
+
+            <div>
+
+
+                <div class="program-number">
+
+                    PROGRAM 06
+
+                </div>
+
+
+                <h3>
+                    🤝 Community Dialogue
+                </h3>
+
+
+                <p>
+
+                    Create spaces where young people and community
+                    members can discuss problems and solutions.
+
+                </p>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+</main>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+
+    <h3>
+        CIVIC FUTURE • SDG 16
+    </h3>
+
+
+    <div class="footer-line"></div>
+
+
+    <p>
+        Peace • Justice • Strong Institutions
+    </p>
+
+
+    <p style="margin-top:10px;">
+
+        Building a safer, fairer, and more inclusive future.
+
+    </p>
+
+
+</footer>
+
+
+
+<script>
+
+function toggleMenu() {
+
+    document
+        .getElementById("navLinks")
+        .classList
+        .toggle("show");
+
+}
+
+</script>
+
+
+</body>
+</html>
